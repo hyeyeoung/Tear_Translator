@@ -6,6 +6,9 @@ class AnalysisScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context){
+    var screenHeight = MediaQuery.of(context).size.height;
+    var screenWidth = MediaQuery.of(context).size.width;
+
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(
@@ -29,23 +32,23 @@ class AnalysisScreen extends StatelessWidget {
                 onPressed:  (){},
               ),
               flexibleSpace: FlexibleSpaceBar(
-                background: Padding(
-                  padding: const EdgeInsets.only(top: 60),
-                  child: Column(
-                    children: [
-                      Container(
-                        width: double.infinity,
-                        height: 50,
-                        color: Colors.lightGreen,
-                      ),
-                      Expanded(
-                        child: Image.asset(
-                          'tt_logo.png',
-                          width: double.infinity,
-                          fit: BoxFit.cover,
+                background: Container(
+                  decoration: BoxDecoration(
+                    color: Color.fromARGB(100, 41, 109, 182),
+                  ),
+                  child : Padding(
+                    padding: const EdgeInsets.only(top: 60),
+                    child: Column(
+                      children: [
+                        Expanded(
+                          child: Image.asset(
+                            'record.png',
+                            width: screenWidth * 0.616666,
+                            height: screenHeight * 0.0859375,
+                          ),
                         ),
-                      ),
-                    ],
+                      ],
+                    ),
                   ),
                 ),
               ),
@@ -63,17 +66,17 @@ class AnalysisScreen extends StatelessWidget {
               ],
             ),
             SliverList(
-                delegate: SliverChildBuilderDelegate(
-                    (BuildContext context, int index){
-                      return Container(
-                        alignment: Alignment.center,
-                        color: Colors.lightBlue[100 * (index%9)],
-                        height: 100.0,
-                        child: Text('밥 주세용 T.T'),
-                      );
-                    },
-                  childCount: 20
-                ),
+              delegate: SliverChildBuilderDelegate(
+                  (BuildContext context, int index){
+                    return Container(
+                      alignment: Alignment.center,
+                      color: Colors.blue[100 * (index%9)],
+                      height: 100.0,
+                      child: Text('밥 주세용 T.T'),
+                    );
+                  },
+                childCount: 20
+              ),
             ),
           ],
         )
