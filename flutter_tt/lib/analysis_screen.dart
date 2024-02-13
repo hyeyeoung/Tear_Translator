@@ -16,55 +16,67 @@ class AnalysisScreen extends StatelessWidget {
               icon: Icon(Icons.arrow_back)),
         ),
         backgroundColor: Color.fromARGB(100, 41, 109, 182),
-        body: Center(
-          child:
-            Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Icon(Icons.record_voice_over_rounded,
-                  size: 100,),
-                SizedBox(height: 20,),
-                ElevatedButton(
-                  child: const Text('녹음하기'),
-                  onPressed: (){
-                    Navigator.push(context, MaterialPageRoute(builder: (_) => RecordScreen()));
-
-                  },
-                ),
-                SizedBox(height: 20),
-                Container(
-                  padding: EdgeInsets.all(16),
-                  margin: EdgeInsets.symmetric(horizontal: 20),
-                  decoration: BoxDecoration(
-                    color: Colors.white,
-                    borderRadius: BorderRadius.circular(10),
-                  ),
+        body: CustomScrollView(
+          slivers: [
+            SliverAppBar(
+              pinned: true,
+              floating: false,
+              expandedHeight: 460,
+              leading: IconButton(
+                focusColor: Colors.black12,
+                icon: const Icon(Icons.menu),
+                tooltip:  'AppBar Menu',
+                onPressed:  (){},
+              ),
+              flexibleSpace: FlexibleSpaceBar(
+                background: Padding(
+                  padding: const EdgeInsets.only(top: 60),
                   child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text(
-                        'Hungry',
-                        style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                      Container(
+                        width: double.infinity,
+                        height: 50,
+                        color: Colors.lightGreen,
                       ),
-                      SizedBox(height: 10),
-                      Text(
-                        '배가고파요 T.T',
-                        style: TextStyle(fontSize: 16),
-                      ),
-                      Text(
-                        '82%',
-                        style: TextStyle(fontSize: 16),
-                      ),
-                      Text(
-                        '아이에게 밥을 주세요',
-                        style: TextStyle(fontSize: 16),
+                      Expanded(
+                        child: Image.asset(
+                          'tt_logo.png',
+                          width: double.infinity,
+                          fit: BoxFit.cover,
+                        ),
                       ),
                     ],
                   ),
                 ),
+              ),
+              actions: [
+                IconButton(
+                  onPressed: (){},
+                  icon: const Icon(Icons.search),
+                  tooltip: 'AppBar Search',
+                ),
+                IconButton(
+                  onPressed: (){},
+                  icon: const Icon(Icons.more_vert),
+                  tooltip: 'AppBar More',
+                ),
               ],
-          ),
-        ),
+            ),
+            SliverList(
+                delegate: SliverChildBuilderDelegate(
+                    (BuildContext context, int index){
+                      return Container(
+                        alignment: Alignment.center,
+                        color: Colors.lightBlue[100 * (index%9)],
+                        height: 100.0,
+                        child: Text('밥 주세용 T.T'),
+                      );
+                    },
+                  childCount: 20
+                ),
+            ),
+          ],
+        )
       ),
     );
   }
