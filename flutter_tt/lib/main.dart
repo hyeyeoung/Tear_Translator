@@ -1,38 +1,71 @@
+import 'dart:async';
 import 'package:flutter/material.dart';
-import 'package:flutter_tt/record_screen.dart';
-import 'package:flutter_tt/analysis_screen.dart';
+import 'package:flutter_tt/start_screen.dart';
 
 void main() {
-  runApp(const MaterialApp(home: MyApp()));
+  runApp(MaterialApp(home: MyApp()));
 }
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+class MyApp extends StatefulWidget {
+  const MyApp({Key? key}) : super(key: key);
 
-  // This widget is the root of your application.
+  @override
+  _MyAppState createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
+  final String imageLogoName = 'tt_logo_gif.gif';
+
+  @override
+  void initState() {
+    super.initState();
+    Timer(Duration(seconds: 2), () {
+      Navigator.pushReplacement(
+        context,
+        MaterialPageRoute(builder: (context) => StartScreen()),
+      );
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
+    var screenHeight = MediaQuery.of(context).size.height;
+    var screenWidth = MediaQuery.of(context).size.width;
 
-    return MaterialApp(
-      title: 'Navigator',
-      home: Scaffold(
-        backgroundColor: Color.fromARGB(100, 41, 109, 182),
-        body : Center(
-          child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Image.asset('logo.png'),
-                SizedBox(height: 20,),
-                ElevatedButton(
-                    child: const Text('Start'),
-                  onPressed: (){
-                    Navigator.push(context, MaterialPageRoute(builder: (_) => RecordScreen()));
-                  },
-                )
+    return WillPopScope(
+      onWillPop: () async => false,
+      child: MediaQuery(
+        data: MediaQuery.of(context).copyWith(textScaleFactor: 1.0),
+        child: Scaffold(
+          backgroundColor: Color.fromARGB(100, 41, 109, 182),
+          body: Container(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: <Widget>[
+                SizedBox(height: screenHeight * 0.384375),
+                Container(
+                  child: Image.asset(
+                    imageLogoName,
+                    width: screenWidth * 0.616666,
+                    height: screenHeight * 0.0859375,
+                  ),
+                ),
+                Expanded(child: SizedBox()),
+                Align(
+                  child: Text(
+                    "© Copyright 2024, TT(Tear Translator)",
+                    style: TextStyle(
+                      fontSize: screenWidth * (14 / 360),
+                      color: Color.fromRGBO(255, 255, 255, 0.6),
+                    ),
+                  ),
+                ),
+                SizedBox(height: MediaQuery.of(context).size.height * 0.0625),
               ],
+            ),
           ),
-        )
-      )
+        ),
+      ),
     );
   }
 }
