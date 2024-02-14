@@ -66,17 +66,41 @@ class AnalysisScreen extends StatelessWidget {
               ],
             ),
             SliverList(
-              delegate: SliverChildBuilderDelegate(
-                  (BuildContext context, int index){
-                    return Container(
+              delegate: SliverChildListDelegate([
+                Container(
+                    alignment: Alignment.center,
+                    color: Colors.red,
+                    width: 150,
+                    height: 100.0,
+                    child: Text('밥 주세용 T.T'),
+                ),
+                Container(
+                    alignment: Alignment.center,
+                    color: Colors.purple,
+                    height: 150.0
+                ),
+                Container(
+                    alignment: Alignment.center,
+                    color: Colors.green,
+                    height: 200.0
+                ),
+                Row(
+                  children: [
+                    Container(
                       alignment: Alignment.center,
-                      color: Colors.blue[100 * (index%9)],
-                      height: 100.0,
-                      child: Text('밥 주세용 T.T'),
-                    );
-                  },
-                childCount: 20
-              ),
+                      color: Colors.blue,
+                      height: 200.0,
+                      width: MediaQuery.of(context).size.width / 2,
+                  ),
+                    Container(
+                        alignment: Alignment.center,
+                        color: Colors.pink,
+                        height: 200.0,
+                      width: MediaQuery.of(context).size.width / 2,
+                    ),
+                  ]
+                ),
+              ]),
             ),
           ],
         )
