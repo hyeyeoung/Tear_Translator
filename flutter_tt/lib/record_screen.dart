@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_tt/analysis_screen.dart';
 import 'package:flutter_tt/recording_screen.dart';
-import 'package:lottie/lottie.dart';
 
 class RecordScreen extends StatelessWidget {
   const RecordScreen({Key? key}) : super(key:key);
@@ -22,7 +20,7 @@ class RecordScreen extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Icon(Icons.record_voice_over_rounded,
+              Icon(Icons.mic,
               size: 100,),
               SizedBox(height: 20,),
               ElevatedButton(
