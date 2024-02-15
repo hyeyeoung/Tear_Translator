@@ -49,7 +49,7 @@ class _RecordingScreenState extends State<RecordingScreen> {
                 SizedBox(height: MediaQuery.of(context).size.height * 0.0625),
                 Align(
                   child: Text(
-                    "litening . . .",
+                    "litening . . . .",
                     style: TextStyle(
                       fontSize: screenWidth * (14 / 360),
                       color: Color.fromRGBO(0, 51, 153, 0.6),
