@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_tt/analysis_screen.dart';
-import 'package:lottie/lottie.dart';
 import 'dart:async';
 
 class RecordingScreen extends StatefulWidget {
