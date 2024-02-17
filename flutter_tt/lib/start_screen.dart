@@ -13,7 +13,7 @@ class StartScreen extends StatelessWidget {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Image.asset('assets/tt_logo_gif.gif'),
+                  Image.asset('assets/tt_logo.png'),
                   SizedBox(height: 20,),
                   ElevatedButton(
                     child: const Text('Start'),

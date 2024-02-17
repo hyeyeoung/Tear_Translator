@@ -111,7 +111,7 @@ class AnalysisScreen extends StatelessWidget {
                                   child:  LinearProgressIndicator(
                                     value: 0.82,
                                     backgroundColor: Colors.white70,
-                                    valueColor: AlwaysStoppedAnimation<Color>(Color.fromARGB(100, 105, 160, 219)),
+                                    valueColor: AlwaysStoppedAnimation<Color>(Color.fromARGB(100, 84, 133, 186)),
                                     minHeight: 30,
                                   ),
                                 ),
@@ -123,24 +123,43 @@ class AnalysisScreen extends StatelessWidget {
                   ),
                   Container(
                     decoration: BoxDecoration(
-                      color: Colors.red,
+                      color: Colors.white,
                     ),
                     alignment: Alignment.center,
                     width: 150,
-                    height: 150.0,
-                    child: Text(
-                      '밥 주세용 T.T',
-                      style: TextStyle(
-                        color: Colors.black,
-                        fontSize: 20.0,
-                        fontWeight: FontWeight.bold,
+                    height: 350.0,
+                    child: Container(
+                      decoration: BoxDecoration(
+                        color: Color.fromARGB(100, 84, 133, 186),
+                        borderRadius: BorderRadius.circular(10),
+                      ),
+                      alignment: Alignment.center,
+                      width: 500,
+                      height: 300.0,
+                      child: Column(
+                        children: [
+                          Padding(padding: EdgeInsets.all(10),
+                            child: Text(
+                              '밥 주세용 T.T',
+                              style: TextStyle(
+                                color: Colors.black,
+                                fontSize: 20.0,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                          ),
+                          Padding(padding: EdgeInsets.all(10),
+                            child: Text(
+                              '배가 고픈 아이예요.',
+                              style: TextStyle(
+                                color: Colors.black,
+                                fontSize: 15.0,
+                              ),
+                            ),
+                          ),
+                        ],
                       ),
                     ),
-                  ),
-                  Container(
-                      alignment: Alignment.center,
-                      color: Colors.green,
-                      height: 200.0
                   ),
                   Row(
                       children: [
@@ -193,7 +212,7 @@ class AnalysisScreen extends StatelessWidget {
                           width: MediaQuery.of(context).size.width / 2,
                           child: Container(
                             decoration: BoxDecoration(
-                              color: Colors.blueAccent,
+                              color: Color.fromARGB(100, 105, 160, 219),
                               borderRadius: BorderRadius.circular(10.0),
                             ),
                             height: 150.0,
