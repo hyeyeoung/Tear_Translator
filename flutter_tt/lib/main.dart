@@ -14,7 +14,7 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  final String imageLogoName = 'tt_logo_gif.gif';
+  final String imageLogoName = 'assets/tt_logo_gif.gif';
 
   @override
   void initState() {

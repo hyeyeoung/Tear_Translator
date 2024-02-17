@@ -10,7 +10,7 @@ class RecordingScreen extends StatefulWidget {
 }
 
 class _RecordingScreenState extends State<RecordingScreen> {
-  final String imageRecordName = 'record.png';
+  final String imageRecordName = 'assets/record.png';
 
   @override
   void initState() {
