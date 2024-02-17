@@ -138,19 +138,23 @@ class AnalysisScreen extends StatelessWidget {
                       height: 300.0,
                       child: Column(
                         children: [
-                          Text(
-                            '밥 주세용 T.T',
-                            style: TextStyle(
-                              color: Colors.black,
-                              fontSize: 20.0,
-                              fontWeight: FontWeight.bold,
+                          Padding(padding: EdgeInsets.all(10),
+                            child: Text(
+                              '밥 주세용 T.T',
+                              style: TextStyle(
+                                color: Colors.black,
+                                fontSize: 20.0,
+                                fontWeight: FontWeight.bold,
+                              ),
                             ),
                           ),
-                          Text(
-                            '배가 고픈 아이예요.',
-                            style: TextStyle(
-                              color: Colors.black,
-                              fontSize: 15.0,
+                          Padding(padding: EdgeInsets.all(10),
+                            child: Text(
+                              '배가 고픈 아이예요.',
+                              style: TextStyle(
+                                color: Colors.black,
+                                fontSize: 15.0,
+                              ),
                             ),
                           ),
                         ],
