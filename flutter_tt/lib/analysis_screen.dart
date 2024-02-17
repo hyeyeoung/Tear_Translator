@@ -34,7 +34,7 @@ class AnalysisScreen extends StatelessWidget {
               flexibleSpace: FlexibleSpaceBar(
                 background: Container(
                   decoration: BoxDecoration(
-                    color: Color.fromARGB(100, 41, 109, 182),
+                    color: Color.fromARGB(100, 105, 160, 219),
                   ),
                   child : Padding(
                     padding: const EdgeInsets.only(top: 180),
@@ -47,7 +47,6 @@ class AnalysisScreen extends StatelessWidget {
                           child: const Text('다시 녹음하기'),
                           onPressed: (){
                             Navigator.push(context, MaterialPageRoute(builder: (_) => RecordingScreen()));
-
                           },
                         )
                       ],
@@ -112,7 +111,7 @@ class AnalysisScreen extends StatelessWidget {
                                   child:  LinearProgressIndicator(
                                     value: 0.82,
                                     backgroundColor: Colors.white70,
-                                    valueColor: AlwaysStoppedAnimation<Color>(Colors.blueGrey),
+                                    valueColor: AlwaysStoppedAnimation<Color>(Color.fromARGB(100, 105, 160, 219)),
                                     minHeight: 30,
                                   ),
                                 ),
@@ -160,7 +159,7 @@ class AnalysisScreen extends StatelessWidget {
                           width: MediaQuery.of(context).size.width / 2,
                             child: Container(
                               decoration: BoxDecoration(
-                                color: Colors.blueAccent,
+                                color: Color.fromARGB(100, 105, 160, 219),
                                 borderRadius: BorderRadius.circular(10.0),
                               ),
                               height: 150.0,

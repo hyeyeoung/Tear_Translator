@@ -33,7 +33,7 @@ class _RecordingScreenState extends State<RecordingScreen> {
       child: MediaQuery(
         data: MediaQuery.of(context).copyWith(textScaleFactor: 1.0),
         child: Scaffold(
-          backgroundColor: Color.fromARGB(100, 41, 109, 182),
+          backgroundColor: Color.fromARGB(100, 105, 160, 219),
           body: Container(
             child: Column(
               mainAxisAlignment: MainAxisAlignment.start,
@@ -52,7 +52,7 @@ class _RecordingScreenState extends State<RecordingScreen> {
                     "litening . . . .",
                     style: TextStyle(
                       fontSize: screenWidth * (14 / 360),
-                      color: Color.fromRGBO(0, 51, 153, 0.6),
+                      color: Color.fromRGBO(0, 13, 51, 92),
                     ),
                   ),
                 ),
