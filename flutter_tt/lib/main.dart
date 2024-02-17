@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter_tt/start_screen.dart';
+import 'package:flutter_native_splash/flutter_native_splash.dart';
 
 void main() {
   runApp(MaterialApp(home: MyApp()));
@@ -14,7 +15,7 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  final String imageLogoName = 'tt_logo_gif.gif';
+  final String imageLogoName = 'assets/tt_logo_gif.gif';
 
   @override
   void initState() {
@@ -37,7 +38,7 @@ class _MyAppState extends State<MyApp> {
       child: MediaQuery(
         data: MediaQuery.of(context).copyWith(textScaleFactor: 1.0),
         child: Scaffold(
-          backgroundColor: Color.fromARGB(100, 41, 109, 182),
+          backgroundColor: Color.fromARGB(100, 105, 160, 219),
           body: Container(
             child: Column(
               mainAxisAlignment: MainAxisAlignment.start,

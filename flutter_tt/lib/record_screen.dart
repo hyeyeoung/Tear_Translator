@@ -15,7 +15,7 @@ class RecordScreen extends StatelessWidget {
           },
           icon: Icon(Icons.arrow_back)),
         ),
-        backgroundColor: Color.fromARGB(100, 41, 109, 182),
+        backgroundColor: Color.fromARGB(100, 105, 160, 219),
         body: Center(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
