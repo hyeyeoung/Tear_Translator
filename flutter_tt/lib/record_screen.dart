@@ -18,131 +18,123 @@ class _RecordScreenState extends State<RecordScreen> {
 
   late FlutterSoundRecorder myRecorder;
   late FlutterSoundPlayer myPlayer;
-  bool check = false;
-  bool playCheck = false;
+  bool isRecording  = false;
+  bool isPlaying  = false;
 
   @override
   void initState() {
-    Future.microtask(() async{
-      myRecorder = FlutterSoundRecorder();
-      await FlutterSoundRecorder().openRecorder();
-      myPlayer = FlutterSoundPlayer();
-    });
     super.initState();
+    myRecorder = FlutterSoundRecorder();
+    myPlayer = FlutterSoundPlayer();
   }
 
   @override
-  void dispose(){
+  void dispose() {
     myRecorder.closeRecorder();
     myPlayer.closePlayer();
     super.dispose();
   }
 
 
-  Future<void> _recodeFunc() async{
-    PermissionStatus status = await Permission.microphone.request();
-    if (status != PermissionStatus.granted) throw RecordingPermissionException("Microphone permission not granted");
-    setState(() {
-      viewTxt = "Recoding ~";
-    });
-    if(!check){
-      Directory tempDir = await getTemporaryDirectory();
-      File outputFile = File('${tempDir.path}/flutter_sound-tmp.aacADTS');
-      await myRecorder.startRecorder(toFile: outputFile.path,codec: Codec.aacADTS);
-      print("START");
-      setState(() {
-        check = !check;
-      });
-      return;
-    }
-    print("STOP");
-    setState(() {
-      check = !check;
-      viewTxt = "await...";
-    });
-    await myRecorder.stopRecorder();
-    return;
-  }
-
-  Future<void> playMyFile(BuildContext context) async{
-    if(!playCheck){
-      Directory tempDir = await getTemporaryDirectory();
-      File inFile = File('${tempDir.path}/flutter_sound-tmp.aacADTS');
-      try{
-        Uint8List dataBuffer = await inFile.readAsBytes();
-        print("dataBuffer $dataBuffer");
-        setState(() {
-          playCheck = !playCheck;
-        });
-        await this.myPlayer.startPlayer(
-            fromDataBuffer: dataBuffer,
-            codec: Codec.aacADTS,
-            whenFinished: () {
-              print('Play finished');
-              setState(() {});
-            });
-      }
-      catch(e){
-        print(" NO Data");
+  Future<void> _recodeFunc() async {
+    if (!isRecording) {
+      PermissionStatus status = await Permission.microphone.request();
+      if (status != PermissionStatus.granted) {
         ScaffoldMessenger.of(context).showSnackBar(
-            SnackBar(
-              content: Text("NO DATA!!!!!!"),
-            )
+          SnackBar(
+            content: Text("Microphone permission not granted"),
+          ),
         );
+        return;
       }
-      return;
+      setState(() {
+        viewTxt = "Recording...";
+        isRecording = true;
+      });
+      try {
+        Directory tempDir = await getTemporaryDirectory();
+        File outputFile = File('${tempDir.path}/flutter_sound_recording.aac');
+        await myRecorder.startRecorder(
+          toFile: outputFile.path,
+          codec: Codec.aacADTS,
+        );
+        print("Recording Started");
+      } catch (e) {
+        print("Recording Error: $e");
+      }
+    } else {
+      setState(() {
+        viewTxt = "Stopping...";
+        isRecording = false;
+      });
+      await myRecorder.stopRecorder();
+      print("Recording Stopped");
     }
-    await myPlayer.stopPlayer();
-    setState(() {
-      playCheck = !playCheck;
-    });
-    print("PLAY STOP!!");
-    return;
   }
 
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text(widget.title!),
-      ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            Text(
-              viewTxt,
-              style: Theme.of(context).textTheme.headline4,
+  Future<void> playMyFile() async {
+    if (!isPlaying) {
+      try {
+        Directory tempDir = await getTemporaryDirectory();
+        File inFile = File('${tempDir.path}/flutter_sound_recording.aac');
+        if (!await inFile.exists()) {
+          ScaffoldMessenger.of(context).showSnackBar(
+            SnackBar(
+              content: Text("Recording not found"),
             ),
-            Container(
-              margin: EdgeInsets.all(20.0),
-              child: FloatingActionButton(
-                onPressed: _recodeFunc,
-                tooltip: 'Increment',
-                child: check ? Icon(Icons.stop) :Icon(Icons.play_arrow),
-              ),
-            ),
-            Container(
-              padding: EdgeInsets.all(20.0),
-              decoration: BoxDecoration(
-                  border: Border.all(width: 2.0, color: Colors.grey[200]!),
-                  borderRadius: BorderRadius.circular(15.0)
-              ),
-              child: Column(
-                children: <Widget>[
-                  Text("Play Controller\n(Recorde File)"),
-                  IconButton(
-                    icon: playCheck ? Icon(Icons.stop) : Icon(Icons.play_circle_filled),
-                    onPressed: () async{
-                      await playMyFile(context);
-                    },
-                  ),
-                ],
-              ),
-            )
-          ],
-        ),
-      ),
-    );
+          );
+          return;
+        }
+        Uint8List dataBuffer = await inFile.readAsBytes();
+        await myPlayer.startPlayerFromBuffer(dataBuffer);
+        await myPlayer.startPlayerFromBufferWithCodec(dataBuffer, codec: Codec.aacADTS);
+        setState(() {
+          viewTxt = "Playing...";
+          isPlaying = true;
+        });
+        print("Playing Started");
+      } catch (e) {
+        print("Playing Error: $e");
+      }
+    } else {
+      await myPlayer.stopPlayer();
+      setState(() {
+        viewTxt = "Record Player";
+        isPlaying = false;
+      });
+      print("Playing Stopped");
+    }
   }
-}
+
+@override
+Widget build(BuildContext context) {
+  return Scaffold(
+    appBar: AppBar(
+      title: Text(widget.title ?? "Default Title"),
+    ),
+    body: Center(
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: <Widget>[
+          Text(
+            viewTxt,
+            style: Theme
+                .of(context)
+                .textTheme
+                .headline4,
+          ),
+          SizedBox(height: 20),
+          ElevatedButton(
+            onPressed: _recodeFunc,
+            child: Text(isRecording ? "Stop Recording" : "Start Recording"),
+          ),
+          SizedBox(height: 20),
+          ElevatedButton(
+            onPressed: playMyFile,
+            child: Text(isPlaying ? "Stop Playing" : "Start Playing"),
+          ),
+        ],
+      ),
+    ),
+  );
+}}
