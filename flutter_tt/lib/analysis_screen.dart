@@ -1,25 +1,21 @@
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
-import 'package:flutter_tt/recording_screen.dart';
+import 'package:flutter_tt/file_pick.dart';
+import 'package:flutter_tt/file_pick.dart';
 import 'package:http/http.dart' as http;
 
 class AnalysisScreen extends StatelessWidget {
-  AnalysisScreen({Key? key}) : super(key: key);
+  // AnalysisScreen({Key? key}) : super(key: key);
 
   String title = '';
   String message = '';
 
+  final String result;
+  AnalysisScreen({required this.result});
+
   Future<void> _getData(BuildContext context) async {
     try {
-      final url = Uri.parse('http://127.0.0.1:8000/upload');
-      final response = await http.get(url);
-
-      if (response.statusCode == 200) {
-        final responseData = json.decode(response.body);
-        print('Received data: $responseData');
-        final result = responseData['result'] as String;
-
         final contentMap = {
           "hungry": {
             "title": "Hungry",
@@ -30,19 +26,28 @@ class AnalysisScreen extends StatelessWidget {
             "title": "Belly Pain",
             "description": "불편해요\n기저귀를 갈아주세요."
           },
+          "burping": {
+            "title": "Burping",
+            "description": "트림을 시켜주세요. 아이는 식사 후 트림을 시켜줘야합니다."
+          }, 
+          "discomfort": {
+            "title":"Discomfortable",
+            "description": "아이가 불편해해요. 주위에 불편한 요소를 제거해주세요."
+          },
+          "tired":{
+            "title":"Tired",
+            "description": "아이가 피곤해해요."
+          }
         };
 
         final content = contentMap[result];
         if (content != null) {
           // Store content in variables
           title = content['title'] ?? '';
-          message = content['message'] ?? '';
+          message = content['description'] ?? '';
         } else {
           print('No content found for result: $result');
         }
-      } else {
-        print('Failed to fetch data. Error: ${response.reasonPhrase}');
-      }
     } catch (e) {
       print('Error: $e');
       ScaffoldMessenger.of(context).showSnackBar(
@@ -99,7 +104,7 @@ class AnalysisScreen extends StatelessWidget {
                               Navigator.push(
                                   context,
                                   MaterialPageRoute(
-                                      builder: (_) => RecordingScreen()));
+                                      builder: (_) => UploadAudioFile()));
                             },
                           )
                         ],

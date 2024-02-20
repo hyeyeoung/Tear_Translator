@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_tt/record_screen.dart';
+import 'package:flutter_tt/file_pick.dart';
 
 
 class StartScreen extends StatelessWidget {
@@ -19,7 +20,7 @@ class StartScreen extends StatelessWidget {
                   ElevatedButton(
                     child: const Text('Start'),
                     onPressed: (){
-                      Navigator.push(context, MaterialPageRoute(builder: (_) => RecordScreen()));
+                      Navigator.push(context, MaterialPageRoute(builder: (_) => UploadAudioFile()));
                     },
                   )
                 ],
