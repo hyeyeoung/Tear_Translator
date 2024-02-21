@@ -11,17 +11,33 @@ class UploadAudioFile extends StatefulWidget {
 }
 
 class _UploadAudioFileState extends State<UploadAudioFile> {
-  void _pickAndUploadFile() async {
-    FilePickerResult? result = await FilePicker.platform.pickFiles(
-      type: FileType.audio,
-    );
+  bool _isPickingFile = false;
 
-    if (result != null) {
-      Uint8List? fileBytes = result.files.single.bytes;
-      String fileName = result.files.single.name;
-      _uploadFile(fileBytes, fileName);
-    } else {
-      print('No file selected.');
+  void _pickAndUploadFile() async {
+    if(_isPickingFile) { 
+      print('File selection is already in progress.');
+      return;
+       }
+
+    _isPickingFile = true;
+    try{
+      FilePickerResult? result = await FilePicker.platform.pickFiles(
+        type: FileType.audio,
+      );
+
+      if (result != null) {
+        Uint8List? fileBytes = result.files.single.bytes;
+        String fileName = result.files.single.name;
+        _uploadFile(fileBytes, fileName);
+      } else {
+        print('No file selected.');
+      }
+    }
+    catch(e){
+      print('An error occurred during file selection: $e');
+    }
+    finally{
+      _isPickingFile = false;
     }
   }
 
@@ -57,14 +73,32 @@ class _UploadAudioFileState extends State<UploadAudioFile> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text('Upload Audio File'),
-      ),
-      body: Center(
-        child: ElevatedButton(
-          onPressed: _pickAndUploadFile,
-          child: Text('Select and Upload Audio File'),
+    // return Scaffold(
+    //   appBar: AppBar(
+    //     title: Text('Upload Audio File'),
+    //   ),
+    //   body: Center(
+    //     child: ElevatedButton(
+    //       onPressed: _pickAndUploadFile,
+    //       child: Text('Select and Upload Audio File'),
+    //     ),
+    //   ),
+    // );
+    return MaterialApp(
+      home: Scaffold(
+        backgroundColor: Color.fromARGB(100, 41, 109, 182),
+        body: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Image.asset('assets/tt_logo.png'),
+              SizedBox(height: 20,),
+              ElevatedButton(
+                onPressed: _pickAndUploadFile, 
+                child: Text('select and Upload Audio File'),
+                )
+            ]
+            ),
         ),
       ),
     );
