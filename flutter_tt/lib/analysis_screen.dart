@@ -72,7 +72,8 @@ class AnalysisScreen extends StatelessWidget {
     return MaterialApp(
       home: Scaffold(
           appBar: AppBar(
-            title: const Text("Tears Translator"),
+            title: const Text("Tears Translator",
+                style: TextStyle(fontFamily: "Anta-Regular")),
             leading: IconButton(
                 onPressed: () {
                   Navigator.pop(context);
@@ -103,7 +104,8 @@ class AnalysisScreen extends StatelessWidget {
                             height: 20,
                           ),
                           ElevatedButton(
-                            child: const Text('Retry Upload'),
+                            child: const Text('Retry Upload',
+                                style: TextStyle(fontFamily: "Anta-Regular")),
                             onPressed: () {
                               Navigator.push(
                                   context,
@@ -165,7 +167,8 @@ class AnalysisScreen extends StatelessWidget {
                                       value: 0.82,
                                       backgroundColor: Colors.white70,
                                       valueColor: AlwaysStoppedAnimation<Color>(
-                                          const Color.fromRGBO(179, 157, 219, 1)),
+                                          const Color.fromRGBO(
+                                              179, 157, 219, 1)),
                                       minHeight: 30,
                                     ),
                                   ),
@@ -197,10 +200,11 @@ class AnalysisScreen extends StatelessWidget {
                                 child: Text(
                                   message,
                                   style: TextStyle(
-                                    color: Colors.black,
-                                    fontSize: 20.0,
-                                    fontWeight: FontWeight.bold,
-                                  ),
+                                      color: Colors.black,
+                                      fontSize: 20.0,
+                                      fontWeight: FontWeight.w600,
+                                      fontFamily:
+                                          'Fredoka-VariableFont_wdthwght'),
                                   textAlign: TextAlign.center,
                                 ),
                               ),
@@ -219,9 +223,10 @@ class AnalysisScreen extends StatelessWidget {
                                   '- Maintain regular sleep schedules: Maintain your child\'s sleep patterns and put him to sleep on a regular nap.\n'
                                   '- Response to sound or light: You may be sensitive to strong sounds or bright lights, so observe your child\'s reaction to this\n',
                                   style: TextStyle(
-                                    color: Colors.black,
-                                    fontSize: 15.0,
-                                  ),
+                                      color: Colors.black,
+                                      fontSize: 15.0,
+                                      fontFamily:
+                                          'Fredoka-VariableFont_wdthwght'),
                                 ),
                               ),
                             ],
