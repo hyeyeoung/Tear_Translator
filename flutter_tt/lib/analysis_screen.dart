@@ -79,7 +79,7 @@ class AnalysisScreen extends StatelessWidget {
                 },
                 icon: Icon(Icons.arrow_back)),
           ),
-          backgroundColor: Color.fromARGB(100, 41, 109, 182),
+          backgroundColor: Colors.deepPurple[300],
           body: CustomScrollView(
             slivers: [
               SliverAppBar(
@@ -89,7 +89,7 @@ class AnalysisScreen extends StatelessWidget {
                 flexibleSpace: FlexibleSpaceBar(
                   background: Container(
                     decoration: BoxDecoration(
-                      color: Color.fromARGB(100, 105, 160, 219),
+                      color: Colors.deepPurple[100],
                     ),
                     child: Padding(
                       padding: const EdgeInsets.only(top: 180),
@@ -165,7 +165,7 @@ class AnalysisScreen extends StatelessWidget {
                                       value: 0.82,
                                       backgroundColor: Colors.white70,
                                       valueColor: AlwaysStoppedAnimation<Color>(
-                                          Color.fromARGB(100, 84, 133, 186)),
+                                          const Color.fromRGBO(179, 157, 219, 1)),
                                       minHeight: 30,
                                     ),
                                   ),
@@ -183,7 +183,7 @@ class AnalysisScreen extends StatelessWidget {
                     child: Expanded(
                       child: Container(
                         decoration: BoxDecoration(
-                          color: Color.fromARGB(100, 84, 133, 186),
+                          color: Colors.deepPurple[200],
                           borderRadius: BorderRadius.circular(10),
                         ),
                         alignment: Alignment.center,
@@ -246,7 +246,7 @@ class AnalysisScreen extends StatelessWidget {
                         width: MediaQuery.of(context).size.width / 2,
                         child: Container(
                           decoration: BoxDecoration(
-                            color: Color.fromARGB(100, 105, 160, 219),
+                            color: Colors.deepPurple[50],
                             borderRadius: BorderRadius.circular(10.0),
                           ),
                           height: 150.0,
@@ -283,7 +283,7 @@ class AnalysisScreen extends StatelessWidget {
                       width: MediaQuery.of(context).size.width / 2,
                       child: Container(
                         decoration: BoxDecoration(
-                          color: Color.fromARGB(100, 105, 160, 219),
+                          color: Colors.deepPurple[50],
                           borderRadius: BorderRadius.circular(10.0),
                         ),
                         height: 150.0,

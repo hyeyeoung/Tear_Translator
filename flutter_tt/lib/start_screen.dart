@@ -10,7 +10,7 @@ class StartScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
         home: Scaffold(
-            backgroundColor: Color.fromARGB(100, 41, 109, 182),
+            backgroundColor: Colors.deepPurple[200],
             body : Center(
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,

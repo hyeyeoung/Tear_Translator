@@ -37,7 +37,7 @@ class _MyAppState extends State<MyApp> {
       child: MediaQuery(
         data: MediaQuery.of(context).copyWith(textScaleFactor: 1.0),
         child: Scaffold(
-          backgroundColor: Color.fromARGB(100, 105, 160, 219),
+          backgroundColor: Colors.deepPurple[200],
           body: Container(
             child: Column(
               mainAxisAlignment: MainAxisAlignment.start,
