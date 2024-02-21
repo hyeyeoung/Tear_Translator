@@ -20,7 +20,7 @@ class AnalysisScreen extends StatelessWidget {
         "hungry": {
           "title": "Hungry",
           "description":
-              "When a child cries like this, it can be a sign of hunger. \n Provide a proper meal at your child's age.\n A newborn baby needs feeding approximately every 2-3 hours, and a 6-month-old child can consume solid food every 4-5 hours.\n For children who start feeding, try soft fruit puree or vegetable puree, and for children over the age of 1, try a variety of nutritious meals.\n However, you should avoid foods that are still difficult to digest.\n Make sure your child is getting enough nutrition and, if necessary, consult a pediatrician to adjust his or her meal plan.\n"
+              "When a child cries like this, it can be a sign of hunger.\n\nProvide a proper meal at your child's age.\n\nA newborn baby needs feeding approximately every 2-3 hours, and a 6-month-old child can consume solid food every 4-5 hours.\n\nFor children who start feeding, try soft fruit puree or vegetable puree, and for children over the age of 1, try a variety of nutritious meals.\n\nHowever, you should avoid foods that are still difficult to digest.\n\nMake sure your child is getting enough nutrition and,\nif necessary, consult a pediatrician to adjust his or her meal plan.\n"
         },
         "belly_pain": {
           "title": "Belly Pain",
@@ -208,7 +208,7 @@ class AnalysisScreen extends StatelessWidget {
                                       fontWeight: FontWeight.w600,
                                       fontFamily:
                                           'Fredoka-VariableFont_wdthwght'),
-                                  textAlign: TextAlign.center,
+                                  textAlign: TextAlign.left,
                                 ),
                               ),
                               Divider(),
