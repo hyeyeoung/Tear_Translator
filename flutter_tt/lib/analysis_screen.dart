@@ -164,7 +164,7 @@ class AnalysisScreen extends StatelessWidget {
                                   child: SizedBox(
                                     height: 10,
                                     child: LinearProgressIndicator(
-                                      value: 0.82,
+                                      value: 1,
                                       backgroundColor: Colors.white70,
                                       valueColor: AlwaysStoppedAnimation<Color>(
                                           const Color.fromRGBO(
