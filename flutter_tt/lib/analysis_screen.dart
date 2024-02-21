@@ -80,7 +80,7 @@ class AnalysisScreen extends StatelessWidget {
                 },
                 icon: Icon(Icons.arrow_back)),
           ),
-          backgroundColor: Colors.deepPurple[200],
+          backgroundColor: Colors.deepPurple[100],
           body: CustomScrollView(
             slivers: [
               SliverAppBar(
@@ -122,7 +122,7 @@ class AnalysisScreen extends StatelessWidget {
               SliverList(
                 delegate: SliverChildListDelegate([
                   Container(
-                      margin: EdgeInsets.all(20),
+                      margin: EdgeInsets.only(left: 20, right: 20),
                       decoration: BoxDecoration(
                         color: Colors.white,
                         borderRadius: BorderRadius.only(
@@ -178,7 +178,7 @@ class AnalysisScreen extends StatelessWidget {
                             ),
                           ])),
                   Container(
-                    margin: EdgeInsets.all(20),
+                    margin: EdgeInsets.only(left: 20, right: 20),
                     decoration: BoxDecoration(
                       color: Colors.white,
                     ),
@@ -256,7 +256,7 @@ class AnalysisScreen extends StatelessWidget {
                   ),
                   Row(children: [
                     Container(
-                        margin: EdgeInsets.all(20),
+                        margin: EdgeInsets.only(left: 20),
                         decoration: BoxDecoration(
                           color: Colors.white,
                           borderRadius: BorderRadius.only(
@@ -294,7 +294,7 @@ class AnalysisScreen extends StatelessWidget {
                           ),
                         )),
                     Container(
-                      margin: EdgeInsets.all(20),
+                      margin: EdgeInsets.only(right: 20),
                       decoration: BoxDecoration(
                         color: Colors.white,
                         borderRadius: BorderRadius.only(
