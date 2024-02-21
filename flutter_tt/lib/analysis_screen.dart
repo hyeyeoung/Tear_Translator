@@ -268,7 +268,7 @@ class AnalysisScreen extends StatelessWidget {
                         ),
                         alignment: Alignment.center,
                         height: 180.0,
-                        width: MediaQuery.of(context).size.width / 2,
+                        width: MediaQuery.of(context).size.width / 2 - 20,
                         child: Container(
                           decoration: BoxDecoration(
                             color: Colors.deepPurple[50],
@@ -306,7 +306,7 @@ class AnalysisScreen extends StatelessWidget {
                       ),
                       alignment: Alignment.center,
                       height: 180.0,
-                      width: MediaQuery.of(context).size.width / 2,
+                      width: MediaQuery.of(context).size.width / 2 - 20,
                       child: Container(
                         decoration: BoxDecoration(
                           color: Colors.deepPurple[50],
