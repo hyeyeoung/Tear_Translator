@@ -185,6 +185,7 @@ class AnalysisScreen extends StatelessWidget {
                     //height: 350.0,
                     child: Expanded(
                       child: Container(
+                        margin: EdgeInsets.all(15),
                         decoration: BoxDecoration(
                           color: Colors.deepPurple[200],
                           borderRadius: BorderRadius.circular(10),
@@ -196,7 +197,7 @@ class AnalysisScreen extends StatelessWidget {
                           child: Column(
                             children: [
                               Padding(
-                                padding: EdgeInsets.all(10),
+                                padding: EdgeInsets.all(30),
                                 child: Text(
                                   message,
                                   style: TextStyle(
@@ -209,7 +210,7 @@ class AnalysisScreen extends StatelessWidget {
                                 ),
                               ),
                               Padding(
-                                padding: EdgeInsets.all(10),
+                                padding: EdgeInsets.all(30),
                                 child: Text(
                                   'Others\n'
                                   '- Bored: Play with your child, or offer new toys or play activities.\n'
@@ -267,7 +268,7 @@ class AnalysisScreen extends StatelessWidget {
                                 height: 20,
                               ),
                               Text(
-                                'Meal record check',
+                                '아이 밥 기록 체크',
                                 style: TextStyle(color: Colors.black),
                               ),
                             ],
@@ -304,7 +305,7 @@ class AnalysisScreen extends StatelessWidget {
                               height: 20,
                             ),
                             Text(
-                              'Child growth record',
+                              '아이 성장 기록',
                               style: TextStyle(color: Colors.black),
                             ),
                           ],
