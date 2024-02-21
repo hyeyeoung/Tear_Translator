@@ -275,13 +275,13 @@ class AnalysisScreen extends StatelessWidget {
                             borderRadius: BorderRadius.circular(10.0),
                           ),
                           height: 150.0,
-                          width: 150.0,
+                          width: 130.0,
                           child: Column(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
                               Icon(
                                 Icons.insert_chart,
-                                size: 100,
+                                size: 80,
                               ),
                               SizedBox(
                                 height: 20,
@@ -313,13 +313,13 @@ class AnalysisScreen extends StatelessWidget {
                           borderRadius: BorderRadius.circular(10.0),
                         ),
                         height: 150.0,
-                        width: 150.0,
+                        width: 130.0,
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             Icon(
                               Icons.library_books,
-                              size: 100,
+                              size: 80,
                             ),
                             SizedBox(
                               height: 20,
