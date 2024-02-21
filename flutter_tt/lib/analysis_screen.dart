@@ -267,7 +267,7 @@ class AnalysisScreen extends StatelessWidget {
                           ),
                         ),
                         alignment: Alignment.center,
-                        height: 200.0,
+                        height: 180.0,
                         width: MediaQuery.of(context).size.width / 2,
                         child: Container(
                           decoration: BoxDecoration(
@@ -305,7 +305,7 @@ class AnalysisScreen extends StatelessWidget {
                         ),
                       ),
                       alignment: Alignment.center,
-                      height: 200.0,
+                      height: 180.0,
                       width: MediaQuery.of(context).size.width / 2,
                       child: Container(
                         decoration: BoxDecoration(
