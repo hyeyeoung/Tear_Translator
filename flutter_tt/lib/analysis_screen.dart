@@ -122,6 +122,7 @@ class AnalysisScreen extends StatelessWidget {
               SliverList(
                 delegate: SliverChildListDelegate([
                   Container(
+                      margin: EdgeInsets.all(20),
                       decoration: BoxDecoration(
                         color: Colors.white,
                         borderRadius: BorderRadius.only(
@@ -209,39 +210,42 @@ class AnalysisScreen extends StatelessWidget {
                                   textAlign: TextAlign.center,
                                 ),
                               ),
+                              Divider(),
                               Padding(
                                 padding: EdgeInsets.all(30),
                                 child: Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    Text('Others',
-                                    style: TextStyle(
-                                      color: Colors.black,
-                                      fontSize: 15.0,
-                                      fontWeight: FontWeight.w800,
-                                      fontFamily: 'Fredoka-VariableFont_wdthwght',
-                                    ),
-                                    ),
-                                    SizedBox(height: 5),
-                                    Text(
-                                    '- Bored:\nPlay with your child, or offer new toys or play activities.\n'
-                                    '- Check for fever:\nCheck your child\'s temperature to see if he or she has fever.\n'
-                                    '- Sick:\nYour child may be sick, so if you see any signs of abnormality, go to the hospital and consult.\n'
-                                    '- Hugging:\n Give your child a sense of security by hugging him affectionately.\n'
-                                    '- Check external environment:\n Too loud or bright environments can make your child uncomfortable. Create a quiet, dark environment.\n'
-                                    '- Adjust your clothes:\n Make sure your child is too hot or cold and adjust your clothes.\n'
-                                    '- Water intake:\n Make sure your child has consumed enough water.\n'
-                                    '- Avoid stimulating food:\n Make sure your child is not fed stimulating food.\n'
-                                    '- Maintain regular sleep schedules:\n Maintain your child\'s sleep patterns and put him to sleep on a regular nap.\n'
-                                    '- Response to sound or light:\n You may be sensitive to strong sounds or bright lights, so observe your child\'s reaction to this\n',
-                                    style: TextStyle(
-                                        color: Colors.black,
-                                        fontSize: 15.0,
-                                        fontFamily:
-                                            'Fredoka-VariableFont_wdthwght'),
-                                    ),
-                                  ]
-                                ), 
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      Text(
+                                        'Others',
+                                        style: TextStyle(
+                                          color: Colors.black,
+                                          fontSize: 15.0,
+                                          fontWeight: FontWeight.w800,
+                                          fontFamily:
+                                              'Fredoka-VariableFont_wdthwght',
+                                        ),
+                                      ),
+                                      SizedBox(height: 5),
+                                      Text(
+                                        '- Bored:\nPlay with your child, or offer new toys or play activities.\n'
+                                        '- Check for fever:\nCheck your child\'s temperature to see if he or she has fever.\n'
+                                        '- Sick:\nYour child may be sick, so if you see any signs of abnormality, go to the hospital and consult.\n'
+                                        '- Hugging:\n Give your child a sense of security by hugging him affectionately.\n'
+                                        '- Check external environment:\n Too loud or bright environments can make your child uncomfortable. Create a quiet, dark environment.\n'
+                                        '- Adjust your clothes:\n Make sure your child is too hot or cold and adjust your clothes.\n'
+                                        '- Water intake:\n Make sure your child has consumed enough water.\n'
+                                        '- Avoid stimulating food:\n Make sure your child is not fed stimulating food.\n'
+                                        '- Maintain regular sleep schedules:\n Maintain your child\'s sleep patterns and put him to sleep on a regular nap.\n'
+                                        '- Response to sound or light:\n You may be sensitive to strong sounds or bright lights, so observe your child\'s reaction to this\n',
+                                        style: TextStyle(
+                                            color: Colors.black,
+                                            fontSize: 15.0,
+                                            fontFamily:
+                                                'Fredoka-VariableFont_wdthwght'),
+                                      ),
+                                    ]),
                               )
                             ],
                           ),
