@@ -267,7 +267,7 @@ class AnalysisScreen extends StatelessWidget {
                                 height: 20,
                               ),
                               Text(
-                                '아이 밥 기록 체크',
+                                'Meal record check',
                                 style: TextStyle(color: Colors.black),
                               ),
                             ],
@@ -304,7 +304,7 @@ class AnalysisScreen extends StatelessWidget {
                               height: 20,
                             ),
                             Text(
-                              '아이 성장 기록',
+                              'Child growth record',
                               style: TextStyle(color: Colors.black),
                             ),
                           ],
