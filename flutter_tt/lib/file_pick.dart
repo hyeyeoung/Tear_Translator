@@ -91,7 +91,7 @@ class _UploadAudioFileState extends State<UploadAudioFile> {
               SizedBox(height: 20,),
               ElevatedButton(
                 onPressed: _pickAndUploadFile, 
-                child: Text('select and Upload Audio File'),
+                child: Text('Select and Upload Audio File'),
                 )
             ]
             ),
