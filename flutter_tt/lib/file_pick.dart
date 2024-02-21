@@ -29,11 +29,15 @@ class _UploadAudioFileState extends State<UploadAudioFile> {
   }
 
   void _uploadFile(Uint8List? fileBytes, String fileName) async {
+    if(fileBytes == null){
+      print("file bytes are null");
+      return;
+    }
     var uri = Uri.parse('http://127.0.0.1:8000/upload');
     var request = http.MultipartRequest('POST', uri)
       ..files.add(http.MultipartFile.fromBytes(
         'audioFile',
-        fileBytes!,
+        fileBytes,
         filename: fileName,
       ));
 
