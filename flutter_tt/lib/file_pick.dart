@@ -5,6 +5,7 @@ import 'package:file_picker/file_picker.dart';
 import 'package:flutter_tt/analysis_screen.dart'; // 결과 페이지 임포트
 import 'package:http/http.dart' as http;
 
+
 class UploadAudioFile extends StatefulWidget {
   @override
   _UploadAudioFileState createState() => _UploadAudioFileState();
@@ -14,10 +15,11 @@ class _UploadAudioFileState extends State<UploadAudioFile> {
   // bool _isPickingFile = false;
 
   void _pickAndUploadFile() async {
+    try{
       FilePickerResult? result = await FilePicker.platform.pickFiles(
-        type: FileType.audio,
+        type: FileType.any,
+        withData: true,
       );
-
       if (result != null) {
         Uint8List? fileBytes = result.files.single.bytes;
         String fileName = result.files.single.name;
@@ -25,7 +27,10 @@ class _UploadAudioFileState extends State<UploadAudioFile> {
       } else {
         print('No file selected.');
       }
-    
+    }
+    catch(e){
+      print(e);
+    }
   }
 
   void _uploadFile(Uint8List? fileBytes, String fileName) async {
@@ -33,7 +38,7 @@ class _UploadAudioFileState extends State<UploadAudioFile> {
       print("file bytes are null");
       return;
     }
-    var uri = Uri.parse('http://127.0.0.1:8000/upload');
+    var uri = Uri.parse('http://192.168.200.112:8000/upload');
     var request = http.MultipartRequest('POST', uri)
       ..files.add(http.MultipartFile.fromBytes(
         'audioFile',

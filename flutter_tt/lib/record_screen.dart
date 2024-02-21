@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_tt/recording_screen.dart';
-import 'package:flutter_sound/flutter_sound.dart';
 import 'package:flutter_tt/file_pick.dart';
 
 class RecordScreen extends StatelessWidget {
