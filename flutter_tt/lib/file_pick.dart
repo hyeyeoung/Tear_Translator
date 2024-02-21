@@ -11,16 +11,9 @@ class UploadAudioFile extends StatefulWidget {
 }
 
 class _UploadAudioFileState extends State<UploadAudioFile> {
-  bool _isPickingFile = false;
+  // bool _isPickingFile = false;
 
   void _pickAndUploadFile() async {
-    if(_isPickingFile) { 
-      print('File selection is already in progress.');
-      return;
-       }
-
-    _isPickingFile = true;
-    try{
       FilePickerResult? result = await FilePicker.platform.pickFiles(
         type: FileType.audio,
       );
@@ -32,13 +25,7 @@ class _UploadAudioFileState extends State<UploadAudioFile> {
       } else {
         print('No file selected.');
       }
-    }
-    catch(e){
-      print('An error occurred during file selection: $e');
-    }
-    finally{
-      _isPickingFile = false;
-    }
+    
   }
 
   void _uploadFile(Uint8List? fileBytes, String fileName) async {
