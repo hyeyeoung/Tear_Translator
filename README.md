@@ -11,6 +11,12 @@ who are new and only know how to soothe their crying child without knowing the r
 
 Let's create an app that uses AI to analyze a baby's crying sounds to identify the cause!!
 
+
+## T.T is
+It records a child's crying, analyzes the cause of the crying through AI analysis, and provides analysis results to the user.
+Five causes are defined as hunger, pain, restroom, fear, and discomfort, and solutions are provided depending on the cause of crying.
+
+
 ## Flowchart
 ![flowchart](https://github.com/hyeyeoung/Tear_Translator/assets/101037541/6ea88b0b-bbc6-4778-8c19-0482fb066cf1)
 
