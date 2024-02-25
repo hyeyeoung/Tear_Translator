@@ -12,7 +12,7 @@ who are new and only know how to soothe their crying child without knowing the r
 Let's create an app that uses AI to analyze a baby's crying sounds to identify the cause!!
 
 ## Flowchart
-![image](https://github.com/hajiiiin/Tear_Translator/assets/101037541/1d237ef9-b459-43c0-822b-f44541cedd48)
+![307585391-1d237ef9-b459-43c0-822b-f44541cedd48](https://github.com/hyeyeoung/Tear_Translator/assets/101037541/6ea88b0b-bbc6-4778-8c19-0482fb066cf1)
 
 **team member: DAYEONG KANG, HAJIN KIM, HYEYOUNG KIM, BUMKU CHOI**
 
